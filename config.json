@@ -1,15 +1,22 @@
 {
   "inbounds": [{
     "port": 8080,
-    "listen": "0.0.0.0",
-    "protocol": "vless",
+    "protocol": "vmess",
     "settings": {
-      "clients": [{ "id": "942ca0bd-15bc-43e4-a057-30c0dbabb624", "flow": "" }],
-      "decryption": "none"
+      "clients": [{ "id": "942ca0bd-15bc-43e4-a057-30c0dbabb624" }]
     },
     "streamSettings": {
-      "network": "ws",
-      "wsSettings": { "path": "/" }
+      "network": "tcp",
+      "tcpSettings": {
+        "header": {
+          "type": "http",
+          "request": {
+            "headers": {
+              "Host": ["m.youtube.com"]
+            }
+          }
+        }
+      }
     }
   }]
 }
